@@ -65,7 +65,7 @@ io.on('connection', (socket) => {
         if (!user) {
             return callback('User not found!');
         }
-        socket.to(user.room).emit('receiveLocation', generateLocationMessage(user.username, `https://www.google.com/maps?q=${coords.latitude},${coords.longitude}`));
+        io.to(user.room).emit('receiveLocation', generateLocationMessage(user.username, `https://www.google.com/maps?q=${coords.latitude},${coords.longitude}`));
         callback();
     });
 
